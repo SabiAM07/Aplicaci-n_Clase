@@ -2,7 +2,7 @@ import streamlit as st
 with st.sidebar:
   st.title("¡Bienvenido a tu app de Salud Mental!")
   st.image("https://www.uam.es/uam/media/imgl/1606893115743/2022-03-07-cabello-img.jpg")
-  st.write("La salud mental tiene un impacto directo en nuestra forma de pensar, sentir y actuar. Determina cómo respondemos ante el estrés, cómo nos relacionamos con otras personas y cómo tomamos decisiones. Es por esto tan importante cuidar de lla como cuidamos de nuestro cuerpo físico. 😃")
+  st.write("La salud mental tiene un impacto directo en nuestra forma de pensar, sentir y actuar. Determina cómo respondemos ante el estrés, cómo nos relacionamos con otras personas y cómo tomamos decisiones. Es por esto tan importante cuidar de ella como cuidamos de nuestro cuerpo físico. 😃")
 
 st.header ("*¡Infórmate más!*")
 st.write("Haz click en cada una de las cajas que se muestran a continuación")
