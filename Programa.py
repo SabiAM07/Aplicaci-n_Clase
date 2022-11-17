@@ -1,23 +1,32 @@
 import streamlit as st
-col1,col2=st.columns( [1,2] )
-col1.title ("¡Bienvenido a tu app de Salud Mental!")
-col2.image ("https://www.uam.es/uam/media/imgl/1606893115743/2022-03-07-cabello-img.jpg", width=400)
+with st.sidebar:
+  st.title("¡Bienvenido a tu app de Salud Mental!")
+  st.image("https://www.uam.es/uam/media/imgl/1606893115743/2022-03-07-cabello-img.jpg")
+  st.write("La salud mental tiene un impacto directo en nuestra forma de pensar, sentir y actuar. Determina cómo respondemos ante el estrés, cómo nos relacionamos con otras personas y cómo tomamos decisiones. Es por esto tan importante cuidar de lla como cuidamos de nuestro cuerpo físico. 😃")
 
-st.write ("La salud mental tiene un impacto directo en nuestra forma de pensar, sentir y actuar. Determina cómo respondemos ante el estrés, cómo nos relacionamos con otras personas y cómo tomamos decisiones. Es por esto tan importante cuidar de lla como cuidamos de nuestro cuerpo físico. 😃")
-
-st.header ("*¡Infórmate acerca de tu Salud Mental!*")
-
+st.header ("*¡Infórmate más!*")
+st.write("Haz click en cada una de las cajas que se muestran a continuación")
 Ansiedad = st.checkbox('Ansiedad')
 
 if Ansiedad:
     st.write('La ansiedad puede ser normal en situaciones estresantes, cómo hablar en público o realizar una prueba. La ansiedad es solo un indicador de una enfermedad subyacente cuando los sentimientos se vuelven excesivos en todo momento e interfieren con la vida cotidiana.')
     st.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnWzwMwIViwoH_SORLvxn_ISqQ2rgT3g7EQLTGujuUYQ&s")
-    st.write("Desliza la barra según tus emociones (dónde cero representa lo mínimo y diez lo máximo)")
-    miedo=st.slider("¿Has sentido miedo ultimamente?", 0, 5, 10)
-    angustia=st.slider("¿Has sentido angustia?", 0, 5, 10)
-    concentracion=st.slider("¿Tienes problemas para concentrarte?", 0, 5, 10)
-    memoria=st.slider("Dificultad para recordar cosas", 0, 5, 10)
-    pensamientos=st.slider("¿Has tenido pensamientos o imagenes catastróficas?", 0, 5, 10)
+    st.write("Deslice la barra según sus emociones")
+    miedo=st.select_slider("1. ¿Ha sentido miedo ultimamente?",
+    options=["si", "en ocasiones","normalmente no", "no"])
+    st.write("Usted", miedo, "ha sentido miedo.")
+    angustia=st.select_slider("2. ¿Se ha sentido angustiado?", 
+    options=["si","a veces","rara vez","no"])
+    st.write("Usted",angustia,"se ha sentido angustiado.")
+    concentracion=st.select_slider("3. ¿Presenta problemas para concentrarse?",
+    options=["si","en ocasiones","normalmenteno","no"])
+    st.write("Usted",concentracion,"presenta problemas para concentrarse.")
+    memoria=st.select_slider("4. Dificultad para recordar cosas", 
+    options=["Sin dificultad","Normal","Me cuesta mucho"])
+    st.write(memoria,"de recordar cosas.")
+    pensamientos=st.select_slider("5. ¿Ha tenido pensamientos o imágenes catastróficas?", 
+    options=["si","seguido","rara vez","nunca"])
+    st.write("Usted",pensamientos,"ha tenido imágenes catastróficas.")
     st.write("*¡Si quieres saber más, haz click en el siguiente enlace!*")
     st.write("https://youtu.be/34ZVrmJxEUo")
 
@@ -25,12 +34,22 @@ Depresión=st.checkbox("Depresión")
 
 if Depresión:
   st.write("La depresión es un trastorno mental caracterizado fundamentalmente por un bajo estado de ánimo y sentimientos de tristeza, asociados a alteraciones del comportamiento, del grado de actividad y del pensamiento.")
-  st.write("Desliza la barra según tus emociones (dónde cero representa lo mínimo y diez lo máximo)")
-  desanimado=st.slider("¿Te has sentido desanimado, deprimido ó sin esperanza?", 0, 5, 10)
-  placer=st.slider("¿Sientes poco interes o placer en hacer algunas cosas?", 0, 5, 10)
-  dormir=st.slider("¿Duermes demasiado, o incluso tienes problemas en dormirte?", 0, 5, 10)
-  pensamientos=st.slider("¿Has pensado en la muerte?", 0, 5, 10)
-  amor=st.slider("Falta de amor propio, aprecio hacia amigos o familiares", 0, 5, 10)
+  st.write("Deslice la barra según sus emociones.")
+  desanimado=st.select_slider("1. ¿Últimamente se ha sentido desanimado, deprimido ó sin esperanza?", 
+  options=["si","en ocasiones","no"])
+  st.write("Usted",desanimado,"se siente desanimado.")
+  placer=st.select_slider("2. ¿Siente poco interés o placer en hacer algunas cosas?", 
+  options=["solo en algunas ocasiones","no muy seguido"])
+  st.write("Usted",placer,"se siente con poco interés en realizar ciertas actividades.")
+  dormir=st.select_slider("3. ¿Duerme demasiado, o incluso tiene problemas para dormir?", 
+  options=["Prefiero dormir","Me cuesta mucho trabajo conciliar el sueño"])
+  st.write(dormir,".")
+  pensamientos=st.select_slider("4. ¿Ha pensado en la muerte?", 
+  options=["seguido","en ocasiones","nunca"])
+  st.write("Usted",pensamientos,"piensa en la muerte.")
+  amor=st.select_slider("5. Falta de amor propio, aprecio hacia amigos o familiares", 
+  options=["si","casi no","no"])
+  st.write("Usted",amor,"siente falta de amor hacia usted mismo o terceros.")
   st.write("*¡Si quieres saber más, haz click en el siguiente enlace!*")
   st.write("https://youtu.be/vJHYZL-KADg")
 
@@ -38,12 +57,22 @@ Estrés=st.checkbox("Estrés")
 
 if Estrés:
   st.write("El estrés es la respuesta física o mental a una causa externa, como tener muchas tareas o padecer una enfermedad. Un estresor o factor estresante puede ser algo que ocurre una sola vez o a corto plazo, o puede suceder repetidamente durante mucho tiempo.")
-  st.write("Desliza la barra según tus emociones (dónde cero representa lo mínimo y diez lo máximo)")
-  ahogo=st.slider("Sensación de ahogo", 0, 5, 10)
-  comer=st.slider("Mayor necesidad de comer", 0, 5, 10)
-  temblores=st.slider("Temblores o TICs", 0, 5, 10)
-  calma=st.slider("Dificultad para mantener la calma", 0, 5, 10)
-  dolores=st.slider("Dolores de cabeza o abdominales constantes", 0, 5, 10)
+  st.write("Deslice la barra según sus emociones")
+  ahogo=st.select_slider("1. ¿Ha sentido sensación de ahogo?",
+  options=["muy seguido","en ocasiones","nunca"])
+  st.write("Usted",ahogo,"presenta sensación de ahogo.")
+  comer=st.select_slider("2. ¿Siente mayor necesidad de comer?",
+  options=["muy seguido","seguido","solo en ocasiones","casi nunca","nunca"])
+  st.write(comer,"siente necesidad de comer.")
+  temblores=st.select_slider("3. ¿Presenta temblores o TICs?",
+  options=["muy frecuentemente","rara vez","casi nunca"])
+  st.write("Usted",temblores,"presenta temblores/TICs.")
+  calma=st.select_slider("4. ¿Presenta dificultad para mantener la calma en situación de problemas?",
+  options=["me cuesta trabajo","con facilidad"])
+  st.write(calma,"mantener la calma.")
+  dolores=st.select_slider("5. ¿Constantemente se presentan dolores de cabeza o abdominales?", 
+  options=["muy seguido","en ocasiones","rara vez","casi nunca"])
+  st.write(dolores,"presenta dolores físicos")
   st.write("*¡Si quieres saber más, haz click en el siguiente enlace!*")
   st.write("https://youtu.be/r0mQj2Y_sqI")
 
